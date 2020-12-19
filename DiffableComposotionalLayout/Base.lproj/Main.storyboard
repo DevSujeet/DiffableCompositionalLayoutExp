@@ -52,15 +52,27 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="gMZ-Lw-Lwq">
+                        <leftBarButtonItems>
+                            <barButtonItem title="remove A" id="QrM-r9-zOH">
+                                <connections>
+                                    <action selector="removefromSectionA:" destination="BYZ-38-t0r" id="NKN-iD-mfw"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="remove B" id="5Se-Cd-BBG">
+                                <connections>
+                                    <action selector="removefromSectionb:" destination="BYZ-38-t0r" id="Eeo-q2-qgY"/>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
                         <rightBarButtonItems>
                             <barButtonItem title="add B" id="H4v-d0-HDj">
                                 <connections>
-                                    <action selector="AddItenB:" destination="BYZ-38-t0r" id="Ycs-fe-Pnh"/>
+                                    <action selector="addToSectionB:" destination="BYZ-38-t0r" id="eDb-BE-8pv"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem title="add A" id="CVL-kr-CUc">
                                 <connections>
-                                    <action selector="addItemA:" destination="BYZ-38-t0r" id="6jh-5H-bN9"/>
+                                    <action selector="addToSectionA:" destination="BYZ-38-t0r" id="6jh-5H-bN9"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
