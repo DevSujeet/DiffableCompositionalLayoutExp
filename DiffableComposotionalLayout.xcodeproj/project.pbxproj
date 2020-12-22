@@ -15,6 +15,9 @@
 		BA8845D1258C74F10077D8F5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA8845CF258C74F10077D8F5 /* LaunchScreen.storyboard */; };
 		BA8845DC258C74F10077D8F5 /* DiffableComposotionalLayoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8845DB258C74F10077D8F5 /* DiffableComposotionalLayoutTests.swift */; };
 		BA8845E7258C74F20077D8F5 /* DiffableComposotionalLayoutUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8845E6258C74F20077D8F5 /* DiffableComposotionalLayoutUITests.swift */; };
+		BAC9A0B82590621B00833B07 /* LayoutRepresentibles.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC9A0B72590621B00833B07 /* LayoutRepresentibles.swift */; };
+		BAC9A0C125907F6600833B07 /* ItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC9A0C025907F6600833B07 /* ItemCollectionViewCell.swift */; };
+		BAC9A0CA2590BA9000833B07 /* SectionHeaderReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC9A0C92590BA9000833B07 /* SectionHeaderReusableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		BA8845E2258C74F20077D8F5 /* DiffableComposotionalLayoutUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DiffableComposotionalLayoutUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA8845E6258C74F20077D8F5 /* DiffableComposotionalLayoutUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiffableComposotionalLayoutUITests.swift; sourceTree = "<group>"; };
 		BA8845E8258C74F20077D8F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BAC9A0B72590621B00833B07 /* LayoutRepresentibles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutRepresentibles.swift; sourceTree = "<group>"; };
+		BAC9A0C025907F6600833B07 /* ItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCollectionViewCell.swift; sourceTree = "<group>"; };
+		BAC9A0C92590BA9000833B07 /* SectionHeaderReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderReusableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +105,8 @@
 		BA8845C3258C74EF0077D8F5 /* DiffableComposotionalLayout */ = {
 			isa = PBXGroup;
 			children = (
+				BAC9A0BF25907F3D00833B07 /* View */,
+				BAC9A0B6259061DF00833B07 /* Layout */,
 				BA8845C4258C74EF0077D8F5 /* AppDelegate.swift */,
 				BA8845C6258C74EF0077D8F5 /* SceneDelegate.swift */,
 				BA8845C8258C74EF0077D8F5 /* ViewController.swift */,
@@ -126,6 +134,23 @@
 				BA8845E8258C74F20077D8F5 /* Info.plist */,
 			);
 			path = DiffableComposotionalLayoutUITests;
+			sourceTree = "<group>";
+		};
+		BAC9A0B6259061DF00833B07 /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				BAC9A0B72590621B00833B07 /* LayoutRepresentibles.swift */,
+			);
+			path = Layout;
+			sourceTree = "<group>";
+		};
+		BAC9A0BF25907F3D00833B07 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BAC9A0C025907F6600833B07 /* ItemCollectionViewCell.swift */,
+				BAC9A0C92590BA9000833B07 /* SectionHeaderReusableView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,8 +283,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAC9A0C125907F6600833B07 /* ItemCollectionViewCell.swift in Sources */,
 				BA8845C9258C74EF0077D8F5 /* ViewController.swift in Sources */,
 				BA8845C5258C74EF0077D8F5 /* AppDelegate.swift in Sources */,
+				BAC9A0B82590621B00833B07 /* LayoutRepresentibles.swift in Sources */,
+				BAC9A0CA2590BA9000833B07 /* SectionHeaderReusableView.swift in Sources */,
 				BA8845C7258C74EF0077D8F5 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
