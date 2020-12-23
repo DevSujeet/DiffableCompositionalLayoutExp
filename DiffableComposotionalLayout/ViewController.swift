@@ -5,6 +5,7 @@
 //  Created by Sujeet.Kumar on 18/12/20.
 //
 
+//https://medium.com/flawless-app-stories/all-what-you-need-to-know-about-uicollectionviewcompositionallayout-f3b2f590bdbe
 import UIKit
 struct SectionData:Hashable {
     var title:String
@@ -39,6 +40,15 @@ class ViewController: UIViewController {
               withReuseIdentifier: SectionHeaderReusableView.reuseIdentifier
             )
             
+            collectionView.register(
+              badgeReusableView.self,
+              forSupplementaryViewOfKind: "badge",
+              withReuseIdentifier: badgeReusableView.reuseIdentifier
+            )
+            
+            //
+            collectionView.backgroundColor = .gray
+            
             collectionView.setCollectionViewLayout(self.createSectionWiseLayout(), animated: false)
         }
     }
@@ -72,6 +82,7 @@ class ViewController: UIViewController {
             
             let section = self.datasource.snapshot()
                 .sectionIdentifiers[indexPath.section]
+            let celldata = self.datasource.snapshot().itemIdentifiers(inSection: section)[indexPath.row]
             
             if kind == UICollectionView.elementKindSectionFooter {
                 let view = collectionView.dequeueReusableSupplementaryView(
@@ -81,7 +92,7 @@ class ViewController: UIViewController {
                 
                 view?.titleLabel.text = section.lowercased()
                 return view
-            } else {
+            } else if kind == UICollectionView.elementKindSectionHeader {
                 let view = collectionView.dequeueReusableSupplementaryView(
                     ofKind: kind,
                     withReuseIdentifier: SectionHeaderReusableView.reuseIdentifier,
@@ -95,6 +106,22 @@ class ViewController: UIViewController {
 //                }
                 
                 return view
+            } else if kind == "badge" {
+                let view = collectionView.dequeueReusableSupplementaryView(
+                    ofKind: kind,
+                    withReuseIdentifier: badgeReusableView.reuseIdentifier,
+                    for: indexPath) as? badgeReusableView
+                
+                view?.titleLabel.text = celldata.nameA
+                //hide badge at specific index
+                if indexPath.row == 3 {
+                    view?.isHidden = true
+                } else {
+                    view?.isHidden = false
+                }
+                return view
+            } else {
+                return nil
             }
 
         }
@@ -235,7 +262,7 @@ extension ViewController {
         
     }
     /*
-     size
+     itemSize
      item
      groupSize
      group
@@ -277,12 +304,25 @@ extension ViewController {
     private func createSectionWiseLayout() -> UICollectionViewLayout {
         
         let layout = UICollectionViewCompositionalLayout(sectionProvider: { (sectionIndex, layoutEnvironment) -> NSCollectionLayoutSection? in
+            //bagge
+            let badgeAnchor = NSCollectionLayoutAnchor(edges: [.top,.trailing], absoluteOffset: CGPoint(x: 0.3, y: -0.3))
+            
+            let badgeSize = NSCollectionLayoutSize(widthDimension: .absolute(40.0),
+                                                   heightDimension: .absolute(20.0))
+            
+            let badge = NSCollectionLayoutSupplementaryItem(layoutSize: badgeSize,
+                                                            elementKind: "badge",
+                                                            containerAnchor: badgeAnchor)
+            //----Items
             let size = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                               heightDimension: .fractionalHeight(1.0))
             
-            let item = NSCollectionLayoutItem(layoutSize: size)
+            let item = NSCollectionLayoutItem(layoutSize: size,
+                                              supplementaryItems: [badge])
+//            let item = NSCollectionLayoutItem(layoutSize: size)
     //        item.contentInsets = NSDirectionalEdgeInsets(top: 5.0, leading: 5.0, bottom: 5.0, trailing: 5.0)
             
+            //----Groups
             let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                                    heightDimension: .fractionalHeight(0.1))
             
@@ -299,14 +339,11 @@ extension ViewController {
             let spacing = CGFloat(10)
             group.interItemSpacing = .fixed(spacing)
             
+            //----Section
             let section = NSCollectionLayoutSection(group: group)
-            section.interGroupSpacing = spacing
-            section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 0, trailing: 10)
             
-            if sectionIndex == 1 {
-                section.orthogonalScrollingBehavior = .continuous
-            }
             
+            //NSCollectionLayoutBoundarySupplementaryItem
             let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                               heightDimension: .absolute(40))
             let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize,
@@ -325,19 +362,27 @@ extension ViewController {
            
             header.pinToVisibleBounds = true
             
+            section.interGroupSpacing = spacing
+            section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)
+            
+            if sectionIndex == 1 {
+                section.orthogonalScrollingBehavior = .continuous
+            }
+            
+            //adding decoration background to section
+            let background = NSCollectionLayoutDecorationItem.background(elementKind: "background")
+//            background.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)
+            section.decorationItems = [background]
+            
             return section
         })
         
+        layout.register(SectionBackgroundDecorationView.self, forDecorationViewOfKind: "background")
+        let config = UICollectionViewCompositionalLayoutConfiguration()
+        config.interSectionSpacing = 16
+        layout.configuration = config
         return layout
     }
 }
- 
-//extension ViewController {
-//
-//    fileprivate enum Data {
-//        case aSection([DataA])
-//        case bSection([DataB])
-//    }
-//
-//}
+
 

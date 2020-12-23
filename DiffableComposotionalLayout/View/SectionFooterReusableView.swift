@@ -1,13 +1,13 @@
 //
-//  SectionHeaderReusableView.swift
+//  SectionFooterReusableView.swift
 //  DiffableComposotionalLayout
 //
-//  Created by Sujeet.Kumar on 21/12/20.
+//  Created by Sujeet.Kumar on 22/12/20.
 //
 
 import UIKit
 
-class SectionHeaderReusableView: UICollectionReusableView {
+class SectionFooterReusableView: UICollectionReusableView {
     static var reuseIdentifier: String {
         return String(describing: SectionHeaderReusableView.self)
     }
@@ -61,6 +61,3 @@ class SectionHeaderReusableView: UICollectionReusableView {
         fatalError("init(coder:) has not been implemented")
     }
 }
-
-
-

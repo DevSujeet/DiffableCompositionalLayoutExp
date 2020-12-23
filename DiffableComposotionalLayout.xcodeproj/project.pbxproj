@@ -18,6 +18,9 @@
 		BAC9A0B82590621B00833B07 /* LayoutRepresentibles.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC9A0B72590621B00833B07 /* LayoutRepresentibles.swift */; };
 		BAC9A0C125907F6600833B07 /* ItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC9A0C025907F6600833B07 /* ItemCollectionViewCell.swift */; };
 		BAC9A0CA2590BA9000833B07 /* SectionHeaderReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC9A0C92590BA9000833B07 /* SectionHeaderReusableView.swift */; };
+		BAC9A0DA2591F9E600833B07 /* SectionFooterReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC9A0D92591F9E600833B07 /* SectionFooterReusableView.swift */; };
+		BAC9A0DF2591FA0400833B07 /* ItemBadgeReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC9A0DE2591FA0400833B07 /* ItemBadgeReusableView.swift */; };
+		BAC9A0E42592E12200833B07 /* SectionBackgroundDecorationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC9A0E32592E12200833B07 /* SectionBackgroundDecorationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +58,9 @@
 		BAC9A0B72590621B00833B07 /* LayoutRepresentibles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutRepresentibles.swift; sourceTree = "<group>"; };
 		BAC9A0C025907F6600833B07 /* ItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		BAC9A0C92590BA9000833B07 /* SectionHeaderReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderReusableView.swift; sourceTree = "<group>"; };
+		BAC9A0D92591F9E600833B07 /* SectionFooterReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionFooterReusableView.swift; sourceTree = "<group>"; };
+		BAC9A0DE2591FA0400833B07 /* ItemBadgeReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemBadgeReusableView.swift; sourceTree = "<group>"; };
+		BAC9A0E32592E12200833B07 /* SectionBackgroundDecorationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionBackgroundDecorationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +155,9 @@
 			children = (
 				BAC9A0C025907F6600833B07 /* ItemCollectionViewCell.swift */,
 				BAC9A0C92590BA9000833B07 /* SectionHeaderReusableView.swift */,
+				BAC9A0D92591F9E600833B07 /* SectionFooterReusableView.swift */,
+				BAC9A0DE2591FA0400833B07 /* ItemBadgeReusableView.swift */,
+				BAC9A0E32592E12200833B07 /* SectionBackgroundDecorationView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -289,6 +298,9 @@
 				BAC9A0B82590621B00833B07 /* LayoutRepresentibles.swift in Sources */,
 				BAC9A0CA2590BA9000833B07 /* SectionHeaderReusableView.swift in Sources */,
 				BA8845C7258C74EF0077D8F5 /* SceneDelegate.swift in Sources */,
+				BAC9A0DF2591FA0400833B07 /* ItemBadgeReusableView.swift in Sources */,
+				BAC9A0E42592E12200833B07 /* SectionBackgroundDecorationView.swift in Sources */,
+				BAC9A0DA2591F9E600833B07 /* SectionFooterReusableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
