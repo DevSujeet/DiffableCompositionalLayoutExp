@@ -115,7 +115,6 @@
 				BAC9A0B6259061DF00833B07 /* Layout */,
 				BA8845C4258C74EF0077D8F5 /* AppDelegate.swift */,
 				BA8845C6258C74EF0077D8F5 /* SceneDelegate.swift */,
-				BA8845C8258C74EF0077D8F5 /* ViewController.swift */,
 				BA8845CA258C74EF0077D8F5 /* Main.storyboard */,
 				BA8845CD258C74F10077D8F5 /* Assets.xcassets */,
 				BA8845CF258C74F10077D8F5 /* LaunchScreen.storyboard */,
@@ -153,13 +152,38 @@
 		BAC9A0BF25907F3D00833B07 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				BAC9A0C025907F6600833B07 /* ItemCollectionViewCell.swift */,
+				BAC9A0EA2592F30100833B07 /* Controller */,
+				BAC9A0E92592F2EE00833B07 /* CollectionCell */,
+				BAC9A0E82592F2CF00833B07 /* SuplimentryView */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BAC9A0E82592F2CF00833B07 /* SuplimentryView */ = {
+			isa = PBXGroup;
+			children = (
 				BAC9A0C92590BA9000833B07 /* SectionHeaderReusableView.swift */,
 				BAC9A0D92591F9E600833B07 /* SectionFooterReusableView.swift */,
 				BAC9A0DE2591FA0400833B07 /* ItemBadgeReusableView.swift */,
 				BAC9A0E32592E12200833B07 /* SectionBackgroundDecorationView.swift */,
 			);
-			path = View;
+			path = SuplimentryView;
+			sourceTree = "<group>";
+		};
+		BAC9A0E92592F2EE00833B07 /* CollectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				BAC9A0C025907F6600833B07 /* ItemCollectionViewCell.swift */,
+			);
+			path = CollectionCell;
+			sourceTree = "<group>";
+		};
+		BAC9A0EA2592F30100833B07 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BA8845C8258C74EF0077D8F5 /* ViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

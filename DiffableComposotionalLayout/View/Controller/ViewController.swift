@@ -7,9 +7,7 @@
 
 //https://medium.com/flawless-app-stories/all-what-you-need-to-know-about-uicollectionviewcompositionallayout-f3b2f590bdbe
 import UIKit
-struct SectionData:Hashable {
-    var title:String
-}
+
 struct DataA :Hashable {
     var nameA:String
     var id:Date = Date() //so that the element are always unique hasable
