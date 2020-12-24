@@ -4,19 +4,7 @@
 //
 //  Created by Sujeet.Kumar on 18/12/20.
 //
-
-//https://medium.com/flawless-app-stories/all-what-you-need-to-know-about-uicollectionviewcompositionallayout-f3b2f590bdbe
 import UIKit
-
-struct DataA :Hashable {
-    var nameA:String
-    var id:Date = Date() //so that the element are always unique hasable
-}
-
-struct DataB :Hashable {
-    var nameB:String
-    var id:Date = Date() //so that the element are always unique hasable
-}
 
 class ViewController: UIViewController {
     
@@ -97,13 +85,8 @@ class ViewController: UIViewController {
                     for: indexPath) as? SectionHeaderReusableView
                 
                 view?.titleLabel.text = section
-//                if indexPath.section == 0 {
-//                    view?.backgroundColor = .red
-//                } else {
-//                    view?.backgroundColor = .green
-//                }
-                
                 return view
+                
             } else if kind == "badge" {
                 let view = collectionView.dequeueReusableSupplementaryView(
                     ofKind: kind,
@@ -182,7 +165,16 @@ class ViewController: UIViewController {
     }
     
     @IBAction func removefromSectionA(_ sender: Any) {
-        //remove random item from Section
+//        removeRandomFromSectionA()
+        
+//        updateRandomFromSectionA()
+        
+        moveItemsWithInSectionA()
+    }
+    
+    //remove random item from Section
+    private func removeRandomFromSectionA() {
+        
         guard var dataArray = self.dataDictionnary["A"] else {
             createSnapshot(for: self.dataDictionnary)
             return
@@ -193,7 +185,7 @@ class ViewController: UIViewController {
             self.dataDictionnary["A"] = nil
             return
         }
-        //get random number from 0 to (count - 1)
+        //get random index from 0 to (count - 1)
         let randomInt = Int.random(in: 0..<(count))
         print("random = \(randomInt) & count = \(count)")
         
@@ -204,7 +196,60 @@ class ViewController: UIViewController {
         createSnapshot(for: self.dataDictionnary)
     }
     
+    private func updateRandomFromSectionA() {
+        guard var dataArray = self.dataDictionnary["A"] else {
+            createSnapshot(for: self.dataDictionnary)
+            return
+        }
+        
+        let count = dataArray.count
+        guard count > 0 else {
+            self.dataDictionnary["A"] = nil
+            return
+        }
+        //get random index from 0 to (count - 1)
+        let randomInt = Int.random(in: 0..<(count))
+        print("random = \(randomInt) & count = \(count)")
+        
+        var itemAtIndex = dataArray[randomInt]
+        itemAtIndex.nameA = "dasdf\(randomInt)"
+        dataArray[randomInt] = itemAtIndex
+        
+        self.dataDictionnary["A"] = dataArray
+        createSnapshot(for: self.dataDictionnary)
+    }
+    
+    func moveItemsWithInSectionA() {
+        guard var dataArray = self.dataDictionnary["A"] else {
+            createSnapshot(for: self.dataDictionnary)
+            return
+        }
+        
+        let count = dataArray.count
+        guard count > 0 else {
+            self.dataDictionnary["A"] = nil
+            return
+        }
+        
+        let dataAtOne = dataArray[1]
+        let dataAt3 = dataArray[3]
+        
+        dataArray[3] = dataAtOne
+        dataArray[1] = dataAt3
+        
+        self.dataDictionnary["A"] = dataArray
+        createSnapshot(for: self.dataDictionnary)
+    }
+    
     @IBAction func removefromSectionb(_ sender: Any) {
+//        removeRandomFromSectionB()
+        
+//        updateRandomFromSectionB()
+                
+        moveItemsWithInSectionB()
+    }
+    
+    private func removeRandomFromSectionB() {
         //remove random item from Section
         guard var dataArray = self.dataDictionnary["B"] else {
             createSnapshot(for: self.dataDictionnary)
@@ -216,7 +261,7 @@ class ViewController: UIViewController {
             self.dataDictionnary["B"] = nil
             return
         }
-        //get random number from 0 to (count - 1)
+        //get random index from 0 to (count - 1)
         let randomInt = Int.random(in: 0..<(count))
         print("random = \(randomInt) & count = \(count)")
         
@@ -226,7 +271,53 @@ class ViewController: UIViewController {
         
         createSnapshot(for: self.dataDictionnary)
     }
+    
+    private func updateRandomFromSectionB() {
+        guard var dataArray = self.dataDictionnary["B"] else {
+            createSnapshot(for: self.dataDictionnary)
+            return
+        }
+        
+        let count = dataArray.count
+        guard count > 0 else {
+            self.dataDictionnary["B"] = nil
+            return
+        }
+        //get random index from 0 to (count - 1)
+        let randomInt = Int.random(in: 0..<(count))
+        print("random = \(randomInt) & count = \(count)")
+        
+        var itemAtIndex = dataArray[randomInt]
+        itemAtIndex.nameA = "afferq\(randomInt)"
+        dataArray[randomInt] = itemAtIndex
+        
+        self.dataDictionnary["B"] = dataArray
+        createSnapshot(for: self.dataDictionnary)
+    }
+    
+    func moveItemsWithInSectionB() {
+        guard var dataArray = self.dataDictionnary["B"] else {
+            createSnapshot(for: self.dataDictionnary)
+            return
+        }
+        
+        let count = dataArray.count
+        guard count > 0 else {
+            self.dataDictionnary["B"] = nil
+            return
+        }
+        
+        let dataAtOne = dataArray[1]
+        let dataAt3 = dataArray[3]
+        
+        dataArray[3] = dataAtOne
+        dataArray[1] = dataAt3
+        
+        self.dataDictionnary["B"] = dataArray
+        createSnapshot(for: self.dataDictionnary)
+    }
 }
+
 extension ViewController {
     
     enum SectionLayoutKind:Int {
