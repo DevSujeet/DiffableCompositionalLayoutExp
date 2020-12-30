@@ -57,10 +57,22 @@ class ViewController: UIViewController {
             
             if indexpath.section == 0 {
                 cell.backgroundColor = .red
+                cell.itemSubTitle.isHidden = false
+                if indexpath.row == 1 {
+                    cell.itemSubTitle.isHidden = true
+                }
             } else {
                 cell.backgroundColor = .green
+                cell.itemSubTitle.isHidden = true
+                if indexpath.row == 1 {
+                    cell.itemSubTitle.isHidden = false
+                }
             }
             cell.itemTitle.text = cellData.nameA
+            let formatter = DateFormatter()
+
+            formatter.dateFormat = "yyyy-MM-dd"
+            cell.itemSubTitle.text = formatter.string(from: cellData.id)
             return cell
         })
         
@@ -165,11 +177,11 @@ class ViewController: UIViewController {
     }
     
     @IBAction func removefromSectionA(_ sender: Any) {
-//        removeRandomFromSectionA()
+        removeRandomFromSectionA()
         
 //        updateRandomFromSectionA()
         
-        moveItemsWithInSectionA()
+//        moveItemsWithInSectionA()
     }
     
     //remove random item from Section
@@ -242,11 +254,11 @@ class ViewController: UIViewController {
     }
     
     @IBAction func removefromSectionb(_ sender: Any) {
-//        removeRandomFromSectionB()
+        removeRandomFromSectionB()
         
 //        updateRandomFromSectionB()
                 
-        moveItemsWithInSectionB()
+//        moveItemsWithInSectionB()
     }
     
     private func removeRandomFromSectionB() {
@@ -363,13 +375,13 @@ extension ViewController {
     /// - Returns: UICollectionViewLayout
     private func createLayout() -> UICollectionViewLayout {
         let size = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                          heightDimension: .fractionalHeight(1.0))
+                                          heightDimension: .estimated(50))
         
         let item = NSCollectionLayoutItem(layoutSize: size)
 //        item.contentInsets = NSDirectionalEdgeInsets(top: 5.0, leading: 5.0, bottom: 5.0, trailing: 5.0)
         
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                               heightDimension: .fractionalHeight(0.1))
+                                               heightDimension: .estimated(50))
         
 //        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
 //                                                       subitems: [item])
@@ -403,17 +415,17 @@ extension ViewController {
                                                             elementKind: "badge",
                                                             containerAnchor: badgeAnchor)
             //----Items
-            let size = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                              heightDimension: .fractionalHeight(1.0))
+            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                              heightDimension: .estimated(100.0))
             
-            let item = NSCollectionLayoutItem(layoutSize: size,
+            let item = NSCollectionLayoutItem(layoutSize: itemSize,
                                               supplementaryItems: [badge])
 //            let item = NSCollectionLayoutItem(layoutSize: size)
     //        item.contentInsets = NSDirectionalEdgeInsets(top: 5.0, leading: 5.0, bottom: 5.0, trailing: 5.0)
             
             //----Groups
             let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                                   heightDimension: .fractionalHeight(0.1))
+                                                   heightDimension: .estimated(100.0))
             
     //        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
     //                                                       subitems: [item])
